@@ -1,0 +1,78 @@
+#!/bin/bash
+clear
+
+#loop
+while true; do
+
+printf "\n"
+printf "********************************\n"
+printf "Qual função deseja executar?"
+printf "\n********************************\n"
+printf "\n"
+
+printf "1 listar os arquivos |" 
+printf "2 testar a conectividade entre equipamentos |"
+printf "3 Procurar arquivo |"
+printf "4 criar arquivo |"
+printf "5 realizarmos pesquisas de DNS |"
+printf "6 ver as portas abertas no computador |"
+printf "7 instalar pacotes |"
+printf "8 resolve o nome de um host para um IP |"
+printf "9 sair do script |"
+printf "0 Limpar historico"
+printf "\n"
+read funcao
+printf "\n"
+
+case $funcao in
+1)
+	ls
+;;
+
+2)
+	ping -c globo.com
+;;
+
+3)
+  printf "Digite o nome do arquivo\n"
+  read nomearquivo
+	find / -name $nomearquivo
+;;
+
+4)
+  printf "Digite o nome do arquivo\n"
+  read nomearquivo
+	nano $nomearquivo
+;;
+
+5)
+	dig globo.com
+;;
+
+6)
+	netstat -a
+;;
+
+7)
+  printf "Digite o nome do pacote a ser instalado\n"
+  read nomepacote
+	sudo apt-get install $nomepacote
+;;
+
+8)
+	nslookup uol.com.br 
+;;
+
+9)
+  exit
+;;
+
+0)
+	clear
+;;
+
+*)
+
+
+esac
+done
